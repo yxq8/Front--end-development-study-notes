@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+      <div>{{msg}}</div>
+      <div>{{reverseString}}</div>
+    </div>
+    <script>
+        Vue.directive('focus', {
+            inserted: function (e1) { //e1表示指令所绑定的元素
+                e1.focus();
+
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+              msg:"Hello",
+            },
+            // 计算属性
+            computed:{
+                reverseString:function(){
+                    return this.msg.split('').reverse().join('');
+                }
+            }
+
+          
+
+        })
+    </script>
+</body>
+
+</html>

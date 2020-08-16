@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            width: 1000px;
+            margin: 10px auto;
+        }
+        .box{
+            float: left;
+            position: relative;
+            width: 200px;
+            height: 300px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-left: -1px;
+            margin-top: -1px;
+        }
+        .box:hover{
+            border: 1px solid #eb8f3a;
+           z-index: 1;
+        }
+        .son{
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            top: 200px;
+            background-color: #eb8f3a;
+            box-sizing: border-box;
+            margin-left: -1px;
+            margin-top: -1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    <div class="box"><div class="son"></div></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+</body>
+</html>

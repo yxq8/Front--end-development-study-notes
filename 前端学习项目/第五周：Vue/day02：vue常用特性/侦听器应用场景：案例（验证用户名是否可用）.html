@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    需求：输入框中输入姓名，失去焦点时验证是否存在，如果已存在，提示从新输入，如果不存在，提示可以使用
+    <div id="app">
+       <div>用户名：<input v-model.lazy='username'><span>{{tip}}</span></div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                username:"",
+                tip:'',
+                name:"xiao",
+            },
+            //  // 计算属性
+            //  computed:{
+            //     fullname:function(){
+            //         return this.firstname+' '+this.lastname;
+            //     }
+            // },
+
+            // 监听器
+            //1、采用侦听器监听用户名变化
+            //2、调用后台接口进行验证
+            //3、根据验证的结果调整提示信息
+            watch: {
+                username: function (val) {
+                    console.log(val);
+                    //调用后台接口验证用户名的合法性
+                    this.checkName(val);
+                    //修改提示信息
+                    this.tip='正在验证';
+                },
+            },
+            methods:{
+                checkName:function(username){
+                 //调用接口，但是可以使用定时任务的方式模拟接口调用
+                 var that=this;
+                 setTimeout(function(){
+                     //模拟调用接口
+                     if(username=='admin'){
+                         that.tip='用户名已经存在，请更换一个';
+                     }
+                     else if(username==""||username==null){
+                        that.tip='用户名不能为空，请输入用户名';
+                     }
+                     else{
+                        that.tip='用户名可以使用';
+                     }
+                 },2000)
+                }            
+                }
+
+
+
+        })
+    </script>
+</body>
+
+</html>

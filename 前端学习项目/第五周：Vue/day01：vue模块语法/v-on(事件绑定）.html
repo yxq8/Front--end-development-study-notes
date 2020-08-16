@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    
+   
+</head>
+<body>
+    <div id="app">
+        <div >{{num}}</div>
+         <!-- v-on指令,事件绑定-->
+        <input type="button" v-on:click='num++' value="点击"/>
+        <input type="button" @click='num++' value="点击"/>
+
+   
+    </div>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+      var app= new Vue({
+            el:'#app',
+            data:{
+                msg:'Hello World',
+                msg1:'<h1>HTML</h1>',
+                info:'您好',
+                num:0
+            }
+        })
+    </script>
+</body>
+</html>

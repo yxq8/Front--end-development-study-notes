@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*引入字体图标*/
+        @font-face {
+            /*字体名称要注意：icommon*/
+            font-family: 'icomoon';
+            /*一定注意路径的问题*/
+            src: url('fonts/icomoon.eot?7kkyc2');
+            src: url('fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?7kkyc2') format('truetype'),
+                url('fonts/icomoon.woff?7kkyc2') format('woff'),
+                url('fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        div {
+            position: relative;
+            width: 300px;
+            height: 40px;
+            border: 1px solid red;
+        }
+
+        span {
+            font-family: 'icomoon';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 16px;
+            color: #000;
+        }
+        p {
+            position: relative;
+            width: 300px;
+            height: 40px;
+            border: 1px solid red;
+        }
+        p::after{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            content: "";
+            font-family: 'icomoon';
+        }
+    </style>
+</head>
+
+<body>
+    <div><span></span></div>
+    <p></p>
+</body>
+
+</html>

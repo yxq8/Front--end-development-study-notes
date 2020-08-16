@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #f4f5f9;
+           
+        }
+        .core{
+            width: 1200px;
+            margin: auto;
+        }
+     .header{
+         height: 100px;
+     }
+     .navs{
+         float: left;
+         height:42px;
+         margin-top: 30px;
+     }
+     .nav{
+         margin-left:70px;
+         margin-right: 50px;
+     }
+     li{
+         list-style: none;
+         float: left;
+     }
+     a{
+         text-decoration: none;
+         color: #050505;
+     }
+     .nav ul li a{
+         display: block;
+         height: 40px;
+         padding: 0 10px;
+         margin-right: 20px;
+         font: 18px "微软雅黑";
+         line-height: 40px;
+     }
+     .nav ul li a:hover{
+         border-bottom: 2px solid #00a4ff;
+     }
+     .search .in{
+         float: left;
+         width: 340px;
+         height: 40px;
+         border: 1px solid #00a4ff;
+         border-right: 0;
+     }
+     .search .bt{
+         width: 50px;
+         height: 42px;
+         float: left;
+         border: 1px solid #00a4ff;
+         background: #00a4ff;
+     } 
+     .userinfo{
+         margin-left: 30px;
+     }
+     .user{
+         float: left;
+         width: 40px;
+         height: 40px;
+         border: 1px solid #00a4ff;
+         border-radius: 50%;
+     }
+     .userinfo span{
+         margin-left: 10px;
+         width: 30px;
+         height: 42px;
+         line-height: 42px;
+     }
+     .n{
+         height: 420px;
+         background-color: #1c036b;
+     }
+     .na{
+         height: 65px;
+         background-color:#ffffff;
+     }
+     .na ul li{
+         display: block;
+         padding: 0 35px;
+         line-height: 65px;
+     }
+     .na ul i{
+         float: left;
+         line-height: 65px;
+     }
+     .na span {
+         display: block;
+         float: right;
+         line-height: 65px;
+         padding-right: 20px;
+         
+     }
+     .na span a{
+        color: #00a4ff;
+     }
+    .programming-top{
+        height: 75px;
+        line-height: 75px;
+    }
+    .programming-top ul{
+        margin: 0 350px;
+    }
+    .programming-top ul li{
+        display: block;
+        padding-right:65px;
+    }
+    .title{
+        float: left;
+    }
+    .title a{
+        font: 18px "微软雅黑";
+    }
+    .more{
+        float: right;
+        margin-right: 20px;
+    }
+    .more a{
+        color: eaebed;
+    }
+    .programming-l{
+        float: left;
+        width: 232px;
+        height: 390px;
+        background-color: peachpuff;
+    }
+    .programming-r{
+        float: right;
+        height: 390px;
+        background-color: powderblue;
+
+    }
+    .p-top{
+        height: 100px;
+        background-color: sandybrown;
+        margin-left: 12px;
+    }
+    .p-bottom{
+        height: 270px;
+        margin-top: 20px;
+    }
+    .box{
+        float: left;
+        width: 230px;
+        height: 270px;
+        margin-left: 12px;
+        background-color: yellow;
+    }
+
+
+    </style>
+</head>
+<body>
+    <!-- 头部模块开始 -->
+    <div class="core header">
+        <div class="navs logo"><img src="../../img/images/logo_03.png"/></div>
+        <div class="navs nav">
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">课程</a></li>
+            <li><a href="#">职业规划</a></li>
+        </ul>
+        </div>
+        <div class="navs search">
+            <input type="text" class="in">
+            <input type="button" class="bt" value="搜索">
+        </div>
+        <div class="navs userinfo">
+            <div class="user"></div>
+            <span>用户名</span>
+        </div>
+    </div>
+    <!-- 头部模块结束 -->
+     <!-- 导航栏模块开始 -->
+    <div class="n">
+        <div class="core"><img src="../../img/images/nav_03.png"></div>
+    </div>
+     <!-- 导航栏模块结束 -->
+      <!-- 功能模块开始 -->
+     <div class="core na">
+         <ul>
+             <li><a href="#">精品推荐</a></li><i>|</i>
+             <li><a href="#">JQuery</a></li><i>|</i>
+             <li><a href="#">Spark</a></li><i>|</i>
+             <li><a href="#">MySQL</a></li><i>|</i>
+             <li><a href="#">JavaWeb</a></li><i>|</i>
+             <li><a href="#">NodeJs</a></li><i>|</i>
+             <li><a href="#">JavaScript</a></li>
+         </ul>
+         <span><a href="#">修改兴趣</a></span>
+     </div>
+       <!-- 功能模块结束 -->
+
+    <!-- 精品推荐开始 -->
+    <div class="core">
+        <img src="../../img/images/recommendation_03.png"/>
+    </div>
+    <!-- 精品推荐结束 -->
+    <!-- 编程入门开始 -->
+    <div class="core">
+        <div class="programming-top">
+            <span class="title"><a href="#">编程入门</a></span>
+            <ul>
+                <li><a href="#">热门</a></li>
+                <li><a href="#">初级</a></li>
+                <li><a href="#">中级</a></li>
+                <li><a href="#">高级</a></li>
+            </ul>
+            <span class="more"><a href="#">查看全部</a></span>
+        </div>
+        <div class="programming-content">
+            <div class="programming-l"></div>
+            <div class="programming-r">
+                <div class="p-top"></div>
+                <div class="p-bottom">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 编程入门结束 -->
+
+
+</body>
+</html>

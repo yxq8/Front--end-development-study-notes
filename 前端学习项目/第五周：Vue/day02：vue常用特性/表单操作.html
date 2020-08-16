@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+       form div:nth-child(5){
+           
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <form action="http://ww.baidu.com">
+            <div><label>姓名：</label><input type="text" v-model='username'></div>
+            <div><label>密码：</label><input type="password"></div>
+            <div><label>性别：</label>
+                <input type="radio" id="male" value="1" v-model='gender'><label for="male">男</label>
+                <input type="radio" id="female" value="2" v-model='gender'><label for="male">女</label>
+            </div>
+            <div><label>爱好：</label>
+                <input type="checkbox" id="see" value="see" v-model='hobby'>
+                <label for="see">看剧</label>
+                <input type="checkbox" id="read" value="read" v-model='hobby'>
+                <label for="see">阅读</label>
+                <input type="checkbox" id="code" value="code" v-model='hobby'>
+                <label for="see">写代码</label>
+            </div>
+            <div><label>职业：</label>
+                <select v-model='work'>
+                    <option value="0">请选择职业……</option>
+                    <option value="1">研发</option>
+                    <option value="2">测试</option>
+                    <option value="3">产品</option>
+                </select>
+            </div>
+                <div><label>个人简介：</label>
+                    <textarea v-model='intro'></textarea>
+                </div>
+                <div><input type="submit" value="提交" v-on:click.prevent="handle"></div>
+               
+        </form>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                username: "11",
+                gender: 2,
+                hobby: ["see", "code"],
+                work: 1,
+            },
+            methods: {
+                handle:function(){
+                    console.log(this.hobby);
+                    console.log(this.gender);
+                    console.log(this.work);
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

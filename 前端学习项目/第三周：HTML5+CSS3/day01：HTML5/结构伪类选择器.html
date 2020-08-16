@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li:first-child {
+            /* E: first-child;匹配父元素的第一个子元素E */
+            background-color: aqua;
+        }
+
+        ul li:nth-child(8) {
+            /* E:nth-child;匹配父元素的第n个子元素E */
+            background-color: brown;
+        }
+
+        li:last-of-type {
+            /* E:first-of-child;指定类型E的第一个n */
+            background-color: chartreuse;
+        }
+
+        dl dd:nth-of-type(even) {/*n是偶数 */
+            background-color: darkcyan;
+        }
+
+        ul li:nth-child(2n+1){/*n是公式 */
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>of-
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <dl>
+        <dt>一</dt>
+        <dd>1</dd>
+        <dd>2</dd>
+        <dd>3</dd>
+        <dd>4</dd>
+        <dd>5</dd>
+
+    </dl>
+</body>
+
+</html>

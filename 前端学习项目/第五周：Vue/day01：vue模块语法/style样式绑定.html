@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 对象语法 -->
+      <div v-bind:style="{width:widthStyle,height:heightStyle,border:borderStyle}"></div>
+        <!-- 对象简化写法 -->
+        <div v-bind:style='objStyle'></div>
+       <!-- 数组语法 -->
+       <div v-bind:style="[whStyle,borderStyles]"></div>
+       
+
+       <button v-on:click="handle">切换</button>
+    </div>
+
+
+    <script>
+        var flag=0;
+        var app=new Vue({
+            el:'#app',
+            data:{
+               widthStyle:'100px',
+               heightStyle:'100px',
+               borderStyle:'1px solid red',
+               objStyle:{
+                   border:'1px solid green',
+                   width:'100px',
+                   height:'100px',
+               },
+               whStyle:{
+                   width:'100px',
+                   height:'100px',
+               },
+               borderStyles:{
+                border:'1px solid #ccc',
+               }
+            },
+            methods:{
+                handle:function(){
+                   this.borderStyle='2px solid blue'
+
+            }
+            }
+        })
+    </script>
+</body>
+</html>

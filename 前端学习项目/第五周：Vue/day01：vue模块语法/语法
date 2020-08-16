@@ -1,0 +1,191 @@
+Vue:渐进式Javascript框架
+
+声明式渲染>组件系统>客户端路由>集中式状态管理>项目构建
+
+vue使用步骤
+1）需要提供标签用于填充数据
+2）引入vue.js库文件
+3）可以使用vue的语法做功能了
+4）把vue提供的数据填充到标签里面
+
+1、实例参数分析
+ var app= new Vue({
+            el:'#app',
+            data:{
+                msg:'Hello World'
+            }
+        })
+ 1）el:元素的挂载位置（值可以是css选择器或者DOM元素）
+ 2）data:模型数据（值是一个对象）
+
+ 2、插值表达式用法
+ 1）将数据填充到HTML标签中
+ 2）插值表达式支持基本的计算操作
+
+ 3、Vue代码运行原理分析
+ 1）概述编译过程的概念（Vue语法>原生语法）
+
+
+ 一、模板语法
+ （1）前端渲染
+ 把数据填充到HTML标签中
+
+ 模板（HTML标签）+数据 > 前端渲染 > 静态HTML内容
+
+前端渲染方式：
+1)原生js拼接字符串
+   将数据以字符串的方式拼接到HTML标签中，前端代码风格大体上如右图所示
+   缺点：不同开发人员的代码风格差别很大，随着业务的复杂，后期的维护变得逐渐困难起来
+
+
+2）使用前端模板引擎
+优点：大家都遵循同样规则写代码，代码可读性明显提高了，方便后期的维护
+缺点：没有专门提供事件机制
+
+3）使用vue特有的模板语法
+* 差值表达式
+* 指令
+* 事件绑定
+* 属性绑定
+* 样式绑定
+* 分支循环结构
+
+
+二、指令：指令本质就是自定义属性；
+指令格式：以v-开始（如v-cloak)
+
+1、v-cloak指令用法
+ 1）插值表达式存在的问题“闪动”；
+ 2）如何解决该问题：使用v-cloak指令
+ 3）解决问题的原理：先隐藏，替换好值之后再显示最终的值
+ 4)用法：
+  （1）提供样式
+  [v-cloak]{
+      display:none;
+  }
+  (2)在插值表达式所在标签中添加v-cloak指令
+
+原理：先通过样式隐藏内容，然后在内存中进行值的替换，替换好之后再显示最终的结果
+
+
+2、数据绑定指令
+ 1）v-text 填充纯文本
+   相比插值表达式更加简洁
+ 2）v-html 填充HTML片段
+   存在安全问题
+   本网站内部数据可以使用，来自第三方的数据不可以使用
+ 3）v-pre 填充原始信息
+   显示原始信息，跳过编译过程（分析编译过程） 
+
+3、数据响应式
+ 1）如何理解响应式
+    html5中的响应式（屏幕尺寸的变化导致样式的变化）
+    数据的响应式（数据的变化导致页面内容的变化）
+ 2）什么是数据绑定
+    数据绑定：将数据填充到标签中
+ 3）v-once只编译一次
+    显示内容之后不再具有响应式功能
+    应用场景：如果显示的信息后续不需要再修改，可以使用v-once,可以提高性能
+
+
+4、双向数据绑定
+ 1）什么是双向数据绑定
+ 2）双向数据绑定分析
+    v-model指定
+    <input type="text" v-model='msg'/>
+ 3)MVVM设计思想
+   M（model）
+   V(view)
+   VM(view-model)
+
+用法：在表单控件或者组件上创建双向绑定
+
+4、事件绑定
+
+   （1）vue如何处理事件
+       1）v-on指令
+       <imput type="buton" v-on:click='num++'/>
+
+       2)v-on简写形式
+       <imput type="buton"@click='num++'/>
+
+   （2）事件函数的调用方式
+       1）直接绑定函数名称
+        <button v-on:click='say'></button>
+       2）调用函数
+        <button v-on:click='say()'></button>
+   （3）事件函数参数传递
+       1）普通参数和事件对象
+        <button v-on:click='say("hi",$event)'></button>
+        如果事件直接绑定函数名称，那么默认会传递事件对象作为事件函数的第一个参数
+        如果事件绑定函数调用，那么事件对象必须作为最后一个参数显示传递，并且事件对象名称必须是$
+      
+   (4)事件修饰符
+      1）.stop阻止冒泡
+      <a v-on:click.stop="handle">跳转</a>
+      2）.prevent阻止默认行为
+      <a v-on:click.prevent="handle">跳转</a>
+   (5)按键修饰符
+      1）.enter回车键
+      <input v-on:keyup.enter='submit'>
+      2）.delete删除键
+     <input v-on:keyup.delete='handle'>
+     3)自定义按键修饰符：名字是自定义的，但对应的值必须是按键对应的event.keycode值
+
+
+5、属性绑定
+（1）Vue如何动态处理属性
+    1）v-bind指令用法
+    <a v-bind：href='url'>链接</a>
+    2）缩写形式
+    <a :href='url'>链接</a>
+
+（2）v-model的底层实现原理
+    <input v-bind:value="msg" v-on:input="msg=$event.target.value">
+
+6、样式绑定
+（1）class样式处理
+    1）对象语法
+     <div v-bind:class="active:isActive"></div>
+    2)数组语法
+     <div v-bind:class="[activeClass,errorClass]"></div>
+样式绑定相关语法细节：
+（1）对象绑定和数组绑定可以结合使用
+（2）class绑定的值可以简化操作
+（3）默认的class如何处理？默认的class会被保留
+
+（2）style样式处理
+    1）对象语法
+    <div v-bind:style="{color:activeColor,fontSize:fontSize}"></div>
+    2)数组语法
+     <div v-bind:style="[baseStyle,overStyle]"></div>
+
+
+7、分支循环结构
+（1）分支结构
+  1)v-if
+  2)v-else
+  3)v-else-if
+  4)v-show：控制元素样式是否显示display:none
+（2）v-if与v-show的区别
+   1）v-if控制元素是否渲染到页面
+   2）v-show控制元素是否显示（已经渲染到页面）
+
+（3）循环结构
+   1）v-for遍历数组
+   <li v-for='item in list'>{{item}}</li>
+   <li v-for='(item,index) in list'>{{item}} +'---'+'{{index}}'</li>>
+   2）key的作用：帮助Vue区分不同的元素，从而提高性能
+    <li :key='item'v-for='(item,index) in list'>{{item}} +'---'+'{{index}}'</li>
+
+   3)v-for遍历对象
+  <div v-for='(value,key,index) in object'></div>
+
+
+   4）v-if和v-for结合使用
+   <div v-if='value==12' v-for='(value,key,index) in object'></div>
+
+
+
+
+  

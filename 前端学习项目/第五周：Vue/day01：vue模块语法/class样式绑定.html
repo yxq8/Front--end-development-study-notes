@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+        .active{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        .border{
+            margin-top: 10px;
+            border: 1px solid red;
+        }
+        .bg{
+            background-color: pink;
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 对象语法 -->
+       <div v-bind:class="{active:isActive}"></div>
+       <div v-bind:class="{active:isActive,border:isBorder}"></div><!-- 多个类 -->
+       <!-- 数组语法 -->
+       <div v-bind:class="[activeClass,borderClass]"></div><!-- 多个类 -->
+       
+       <!-- 对象、数组结合使用 -->
+       <div v-bind:class="[activeClass,borderClass,{bg:isBg}]"></div><!-- 多个类 -->
+
+       <!-- 简化绑定 -->
+       <div v-bind:class="arrClass">数组语法</div><!-- 多个类 -->
+       <div v-bind:class="objClass">对象语法</div><!-- 多个类 -->
+
+       <button v-on:click="handle">切换</button>
+    </div>
+
+
+    <script>
+        var flag=0;
+        var app=new Vue({
+            el:'#app',
+            data:{
+               isActive:true,
+               isBorder:true,
+               activeClass:'active',
+               borderClass:'border',
+               isBg:true,
+               arrClass:['active','border'],/* 数组对象 */
+               objClass:{/* 对象 */
+                   active:true,
+                   border:true
+               }
+
+
+            },
+            methods:{
+                handle:function(){
+                    if(flag==0){
+                    this.isActive=false;
+                    this.isBorder=false;/* 对象方法，去掉属性 */
+                    this.borderClass='';/*数组方法， 去掉属性 */
+                    this.objClass.border=false;/*对象简化， 去掉属性 */
+                    flag=1;
+                    }
+                    else{
+                        this.isActive=true;
+                        this.isBorder=true;
+                        this.borderClass='border';
+                        flag=0;
+                    }
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

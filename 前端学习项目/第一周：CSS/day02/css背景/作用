@@ -1,0 +1,39 @@
+应用：给元素添加背景样式，能设置不同背景位置
+
+一、背景
+1、可设置背景颜色
+background-color:颜色值；默认是透明的
+
+2、可设置背景图片
+background-image:url(路径)；
+
+
+二、背景平铺
+background-image:url();
+background-repeat:no-repeat;(不平铺)
+
+三、背景位置（重点）
+
+
+background-position:length || position;
+
+注：（1）必须指定background-image属性
+    （2）position后面是x坐标和y坐标，可以使用方位名词或精确单位；
+    （3）如果只指定一个方位名词，另一个默认居中，为50%；
+
+
+四、背景附着：解释背景是滚动的还是固定的
+background-attachment:scroll|fixed;
+scroll:背景图像随对象内容滚动；
+fixed:图像固定
+
+
+五：背景简写
+
+background:背景颜色 背景图片地址 背景平铺 背景滚动 背景位置；
+
+六：背景透明
+
+background:rgba(0,0,0,0.3);必须是4个值
+
+

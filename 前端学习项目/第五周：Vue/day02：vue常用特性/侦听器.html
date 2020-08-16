@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div><input v-model="firstname"></div>
+        <div><input v-model="lastname"></div>
+        <div v-text="fullname"></div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                firstname: "Jim",
+                lastname: "Li",
+                fullname: "Jim Li",
+            },
+            //  // 计算属性
+            //  computed:{
+            //     fullname:function(){
+            //         return this.firstname+' '+this.lastname;
+            //     }
+            // },
+
+            // 监听器
+            watch: {
+                firstname: function (val) {
+                    //val变化之后的值
+                    this.fullname = val + ' '+this.lastname;
+                },
+                lastname: function (val) {
+
+                    this.fullname = this.firstname + ' '+val;
+                }
+            }
+
+
+
+        })
+    </script>
+</body>
+
+</html>

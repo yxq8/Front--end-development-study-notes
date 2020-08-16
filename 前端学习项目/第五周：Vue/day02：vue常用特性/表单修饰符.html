@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+        #app{
+            width: 200px;
+            height: 100%;
+            margin: 100px auto;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="app" >
+<h5>简单计算器</h5>
+<div>数值A:<input type="number" v-model.number="A"/></div><!-- 加上.number直接将输入转换为数值 -->
+<div>数值B:<input type="text" v-model.number="B"/></div>
+<div><input type="text" v-model.trim="info"></div><!-- .trim去掉开始结尾空格 -->
+<div><input type="text" v-model.lazy="msg"><span>{{msg}}</span><!-- .lazy失去焦点再改变数值 -->
+
+</div>
+<div><input type="button" value="计算" v-on:click="handle"/></div>
+<div>计算结果：<span v-text="result"></span></div>
+
+
+    </div>
+    <script>
+        var app=new Vue({
+            el:'#app',
+            data:{
+                A:'',
+                B:'',
+                result:'',
+                info:'',
+                msg:"12"
+            },
+            methods:{
+                handle:function(){
+                    // this.result=parseInt(this.A)+parseInt(this.B)/* 将字符串转换为数值 */
+                    this.result=this.A+this.B;
+                    alert(this.info.length);
+
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

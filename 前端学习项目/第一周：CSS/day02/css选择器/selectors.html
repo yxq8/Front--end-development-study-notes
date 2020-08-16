@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{/*标签选择器*/
+            width:300px;
+            height: 100px;
+            border: 1px solid #ff0000;
+            margin: 10px;
+            float: left;
+        }
+        .d1{/*类选择器*/
+            background: #63a35c;
+        }
+        .d2{/*类选择器*/
+            border:1px solid #f6db43;
+        }
+        #d{/*id选择器*/
+            background: #0086b3;
+        }
+        h5,p,span{/*群组选择器*/
+            color: #795da3;
+            font-size: 20px;
+        }
+        div>span{/*子选择器，作用于div下的span元素，不能作用于div下p下的span，即作用于儿子*/
+            color: #86d93e;
+        }
+        .d1 span{/*后代选择器，作用于div下所有的span元素*/
+            color: #b3d4fc;
+        }
+        p+span{/*相邻同胞选择器，作用于<p><span>后<span>标签元素*/
+
+            color: #ee9900;
+        }
+        span:hover{/*伪类选择器*/
+            color: red;
+        }
+        p[t]{/*属性选择器*/
+            color: #ffecec;
+        }
+        *{/*通配选择器*/
+            font-weight: bold;
+            color: #b3d4fc;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h5>标签</h5>
+</div>
+<div class="d1">
+    <h5>类选择器</h5>
+</div>
+<div class="d1 d2">
+    <h5>多类选择器</h5>
+</div>
+<div id="d">
+    <h5>id选择器</h5>
+</div>
+<div>
+    <p>群组选择器1</p>
+    <p><span>群组选择器2</span></p>
+</div>
+<div>
+    <span>子选择器1</span>
+    <p><span>子选择器2</span></p>
+</div>
+<div class="d1">
+    <span>后代选择器1</span>
+    <p><span>后代选择器2</span></p>
+</div>
+<div>
+    <p><span>相邻同胞选择器1</span></p>
+    <span>相邻同胞选择器2</span>
+    <span>相邻同胞选择器3</span>
+</div>
+<div>
+    <p>鼠标悬停1</p>
+    <span>鼠标悬停2</span>
+</div>
+<div>
+    <p t="p">属性选择器</p>
+    <p>属性选择器</p>
+</div>
+</body>
+</html>

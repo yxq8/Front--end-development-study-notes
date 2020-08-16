@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #cccccc;
+        }
+        div::before{
+            content: "我";/* 在内容内部的前面插入内容 */
+            background: #98d68c;
+        }
+        div::after{
+            content: "无敌的";/* 在内容内部的后面插入内容 */
+        }
+    </style>
+</head>
+<body>
+    <div>是</div>
+</body>
+</html>

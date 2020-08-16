@@ -1,0 +1,42 @@
+/*公共样式*/
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+
+/*版心*/
+.w {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/*引入字体图标*/
+@font-face {
+    /*字体名称要注意：icommon*/
+     font-family: 'icomoon';
+     /*一定注意路径的问题*/
+     src:  url('../fonts/icomoon.eot?7kkyc2');
+     src:  url('../fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+       url('../fonts/icomoon.ttf?7kkyc2') format('truetype'),
+       url('../fonts/icomoon.woff?7kkyc2') format('woff'),
+       url('../fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
+     font-weight: normal;
+     font-style: normal;
+   }
+
+.style-red{
+	color: #c81623;
+}
+li {
+	float: left;
+}
+i {
+	font-family: 'icomoon';
+}
+a:hover{
+  color: #e33333
+}
+
+

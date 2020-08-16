@@ -1,0 +1,106 @@
+一、表单操作
+1、input单行文本
+<input type="text" v-model='username'>
+
+2、textarea多行文本
+ <textarea v-model='intro'></textarea>
+3、select下拉多选
+ <select v-model='work'>
+                    <option value="0">请选择职业……</option>
+                    <option value="1">研发</option>
+                    <option value="2">测试</option>
+                    <option value="3">产品</option>
+ </select>
+4、radio单选框
+ <input type="radio" id="male" value="1" v-model='gender'><label for="male">男</label>
+ <input type="radio" id="female" value="2" v-model='gender'><label for="male">女</label>
+5、checkbox复选框
+    <input type="checkbox" id="see" value="see" v-model='hobby'>
+    <label for="see">看剧</label>
+    <input type="checkbox" id="read" value="read" v-model='hobby'>
+    <label for="see">阅读</label>
+    <input type="checkbox" id="code" value="code" v-model='hobby'>
+    <label for="see">写代码</label>
+
+6、表单域修饰符
+  （1）number:转换为数值
+      <input v-model.number="age" type="number">
+  （2）trim:去掉开始和结尾的空格
+  （3）lazy:将input事件切换为change事件
+
+7、自定义指令
+（1）自定义指令的语法规则（获取元素焦点）
+Vue.directive('focus'{
+    inserted:function(e1){
+        e1.focus();
+    }
+})
+（2）自定义指令用法
+ <input type="text" v-focus>
+
+ (3)带参数的自定义指令（改变元素背景色）
+ Vue.directive('color',{
+    inserted:function(e1,binding){        //el:指令绑定的元素，用来直接操作DOM;
+                                          //binding:一个对象，包含一下属性：name、value、……
+        e1.style.backgroundColor=binding.value.color;
+    }
+})
+
+使用： <input type="text" v-color='{color:"red"}'>
+
+8、局部指令
+
+二、计算属性
+为何需要计算属性？
+ 表达式的计算逻辑可能会比较复杂，使用计算属性可以使模板内容更加简洁
+
+计算属性与方法的区别
+（1）计算属性使是基于他们的依赖进行缓存的
+（2)方法不存在缓存
+
+
+三、侦听器
+1、侦听器的应用场景
+  数据变化时执行异步或开销较大的操作
+
+2、侦听器的用法
+
+watch:{
+    firstName:function(val){
+        //val变化之后的值
+        this.fullName=val+this.lastName;
+    },
+    lastName:function(val){
+       
+        this.fullName=this.firstName+val;
+    }
+}
+
+四、过滤器
+1、过滤器的作用是什么？
+格式化数据，比如将字符串格式化成首字母大写，将日期格式化成指定的格式等
+
+(1)自定义过滤器
+Vue.filter('过滤器名称'，function(value){
+    //过滤器业务逻辑
+})
+
+（2）过滤器的使用
+
+<div>{{msg | upper}}</div>
+<div>{{msg | upper | lower}}</div>
+<div v-bind:id="id | formatId"></div>
+
+(3)局部过滤器
+ filters:{
+        upper:function(val){
+        return val.charAt(0).toUpperCase() + val.slice(1);
+        }
+    }
+(4)带参数的过滤器
+Vue.filter('format',function(value,argq){
+    //value就是过滤器传递过来的参数
+})
+
+（5）过滤器的使用
+<diV>{{date | format{'yyyy-MM--dd'}}}</diV>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tab {
+            width: 500px;
+            height: 330px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        ul {
+            height: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        li {
+            display: block;
+            float: left;
+            width: 100px;
+            list-style-type: none;
+            text-align: center;
+            line-height: 30px;
+            border-right: 1px solid #ccc;
+        }
+
+       .current {
+            color: #fff;
+            background-color: cadetblue;
+        }
+
+        .tab .img-current {
+            display: block;
+        }
+        .tab div{
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+<!-- 实现步骤 -->
+<!-- 1、实现静态UI效果
+   用传统的方式实现标签结构和样式
+2、基于数据重构UI效果
+   将静态的结构和样式重构为基于Vue模板语法的形式
+   处理事件绑定和js控制逻辑
+3、声明式编程
+   模板的结构和最终显示的效果基本一致 -->
+
+    <div id="app">
+        <div class="tab">
+            <ul>
+               <li v-on:click='changeTab(index)':class='currentIndex==index?"current":""':key='item.id' v-for='(item,index) in list'>{{item.title}}</li>
+            </ul>
+            <div :class='currentIndex==index?"img-current":""':key='item.id' v-for='(item,index) in list'>
+                <img v-bind:src="item.path" alt="">
+            </div>
+           
+        </div>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list:[{
+                    id:1,
+                    title:"苹果",
+                    path:'img/apple.png',
+                },
+                {
+                    id:2,
+                    title:"柠檬",
+                    path:'img/lemon.png',
+                },
+                {
+                    id:3,
+                    title:"橙子",
+                    path:'img/orange.png',
+                }
+                ],
+                currentIndex:0,/* 选项卡当前索引 */
+
+
+            },
+            methods:{
+                changeTab:function(index){
+                    // 实现选项卡切换操作：本质操作类名
+                    //如何操作类名？通过currentIndex
+                    this.currentIndex=index;
+
+
+                }
+            }
+        })
+    </script>
+    <!-- <script>
+        var that;
+        function Tab() {
+            that = this;
+            this.lis = document.querySelectorAll(".tab li");
+            this.divs = document.querySelectorAll(".tab div");
+            //初始化
+            this.init = function () {
+                for (var i = 0; i < this.lis.length; i++) {
+                    this.lis[i].index = i;
+                    //切换标签事件
+                    this.lis[i].onclick = this.changeTab; //不加括号为了使点击后才触发事件
+                }
+            }
+            //清除样式
+            this.clearStyle = function () {
+                for (var i = 0; i < this.lis.length; i++) {
+                    this.lis[i].className = '';
+                    this.divs[i].className = '';
+                }
+            }
+            //切换tab栏
+            this.changeTab = function () {
+                that.clearStyle(); //that指实例对象
+                this.className = 'current'; //this指向调用changeTab这个方法的对象
+                that.divs[this.index].className = 'img-current';
+
+            }
+
+        }
+        var tab = new Tab();
+        tab.init();
+    </script> -->
+</body>
+
+</html>

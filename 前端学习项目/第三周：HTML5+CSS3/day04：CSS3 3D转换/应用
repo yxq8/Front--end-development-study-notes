@@ -1,0 +1,24 @@
+一、3D移动 translate3d
+
+1、属性
+(1)transform:translate3d(x,y,z);
+(2)transform:translateX(100px);x轴移动
+(3)transform:translateY(100px);y轴移动
+(4)transform:translateZ(100px);z轴移动
+
+2、透视 perspective:近大远小
+
+（1）透视写到被观察元素的父盒子里
+perspective:d;//d就是视距，人眼睛到屏幕的距离
+translateZ(z);z轴越大看到物体越大
+
+
+3、3D旋转 rotate3d
+transform:rotate3d(x,y,z，deg);沿着自定义轴旋转deg角度
+transform:rotateX(45deg);沿着x轴正方向旋转45度
+transform:rotateY(45deg);沿着y轴正方向旋转45度
+transform:rotateZ(45deg);沿着z轴正方向旋转45度
+
+
+
+

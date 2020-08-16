@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <h5>水果列表</h5>
+        <ul>
+            <li v-for='item in fruits'>{{item}}</li>
+            <li v-for='(item,index) in fruits'>{{item +'---'+index}}</li>
+            <li v-for='item in MyFruits'>
+                <span>{{item.ename}}</span>
+                <span>---</span>
+                <span>{{item.cname}}</span>
+            </li>
+
+            <li v-for='(v,k,i) in obj'>{{v+'---'+k+'---'+i}}</li>
+        </ul>
+
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                fruits: ['苹果', '香蕉', '橙子'],
+                MyFruits: [{
+                        ename: 'apple',
+                        cname: '苹果',
+                    },
+                    {
+                        ename: 'banana',
+                        cname: '香蕉',
+                    },
+                    {
+                        ename: 'orange',
+                        cname: '橙子',
+                    },
+                ],
+                obj: {
+                    uname: 'lisa',
+                    age: 12,
+                    gender: 'male'
+                }
+            },
+            methods: {
+                handle: function () {}
+            }
+        })
+
+        //  使用原生js遍历对象
+        var obj = {
+            uname: 'lisa',
+            age: 12,
+            gender: 'male'
+        }
+        for (var key in obj) {
+            console.log(key, obj[key]);
+        }
+    </script>
+</body>
+
+</html>

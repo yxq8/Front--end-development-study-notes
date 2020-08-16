@@ -1,0 +1,54 @@
+一、动画animation
+制作动画步骤：
+（1）先定义动画
+（2）再使用（调用）动画
+
+1、用keyframes定义动画（类似定义类选择器）
+@keyframes 动画名称{
+    0%{
+        width:100px;
+    }
+     100%{
+        width:200px;
+    }
+}
+动画序列
+（1）0%是动画开始，100%是动画的完成，这样的规则就是动画序列；
+（2）在@keyframes中规定某项CSS样式，就能创建由当前样式逐渐改成新样式的动画效果
+（3）动画使元素从一种样式逐渐变化成另一种样式的效果，可以改变任意多的样式任意多的次数；
+（4）请用百分比来规定变化发生的时间，或关键词from或to，等同于0%和100%；
+
+
+2、元素使用动画
+div{
+    animation-name:动画名称；
+    animation-duration:持续时间；
+}
+
+
+
+二、动画常见属性
+（1）@keyframes  规定动画
+（2）animation-name   规定@keyframes 动画名称（必须的）
+（3）animatiob-duration   规定动画完成一个周期所花费的秒或毫秒（必须的）
+（4）animation-timing-function: ease;/* 运动曲线 */
+     属性值：
+     1、linear:匀速
+     2、ease:加速
+     3、steps();指定时间函数中间隔数量（步长）
+
+
+（5）animation-delay:2s ;/* 何时开始 */
+（6）animation-iteration-count: infinite;/* 重复次数 ，默认1次，infinite无限次*/
+（7）animation-direction: alternate;/* 是否反方向播放,默认normal,反方向alternate */
+（8）animation-fill-mode:forwards ;/* 动画结束后的状态，默认backwards回到起始状态，forwards保持 */
+（9）animation-play-state: running;/* 是否运行或暂停，默认running运行,paused暂停 */
+
+
+三、简写属性
+animation:动画名称 持续时间  运动曲线  何时开始  播放次数  是否反方向  动画起始或结束状态
+
+（1）简写属性中不包含animation-play-state
+（2）暂停动画：animation-play-state:paused;经常和鼠标经过等其它配合使用
+（3）想要动画走回来，而不是直接跳回来：animation-direction: alternate;
+（4）盒子动画结束后，停在结束位置：animation-fill-mode:forwards ;

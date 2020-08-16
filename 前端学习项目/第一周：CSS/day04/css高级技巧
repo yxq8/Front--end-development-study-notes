@@ -1,0 +1,70 @@
+理解：
+1）说出元素显示隐藏最常见的写法
+2）说出精灵图产生的目的
+3）说出去除图片底侧空白缝隙的办法
+
+
+1、元素的显示与隐藏
+1）display:none;(隐藏)，隐藏后不再保留位置
+   display:block;(显示)
+
+2）visibility:visible;(显示)
+   visibility:hidden;(隐藏)，隐藏后保留原有位置
+
+3）overflow:hidden;(超出部分隐藏)；
+   overflow：scroll;(不管超出内容与否，总是显示滚动条)
+   overflow:auto;(超出自动显示滚动条，不超出不显示滚动条)
+
+
+
+
+2、css用户界面样式
+1）鼠标样式cursor
+cursor:pointer;(小手)
+cursor:move;(移动)
+cursor:text;(文本)
+cursor:not-allowed(禁止)
+
+2）轮廓线outline
+outline:0；或者outline：none;（去掉边框）
+
+3)防止拖拽文本域resize
+resize:none；
+<textarea style="resize：none"></textarea>
+
+4)vertical-align：middle;垂直居中
+只针对于行内元素或者行内块元素
+
+5)去除图片底侧空白缝隙
+vertial-align：middle/top/bottom;(常用)
+或display:block;
+
+6）溢出文字省略号显示
+三部曲
+   1.white-space:nowrap;//强制一行内显示文本
+   2.overflow:hidden;//超出部分隐藏
+   3.text-overflow:ellipsis;//文字用省略号代替超出的部分
+
+
+3、css精灵技术
+1)为什么需要精灵技术
+为有效减少服务器接受和发送请求的次数，提高页面的加载速度
+
+2）精灵技术讲解
+使用css的
+background-image、background-repeat、background-position属性进行背景定位
+（1）精确测量，每个小背景图片的大小和位置；
+（2）给盒子指定小背景图片时，背景定位基本都是负值
+
+4、margin负值之美
+1）负边距+定位：水平垂直居中
+2）压住盒子相邻边框
+margin-left:-1px；
+
+
+5、css三角形之美
+1、高度宽度都设置为0
+2、4个边框都要写，只需保留需要的边框颜色，其余不能省略，改为transparent透明
+3、底版本浏览器加上font-size：0；line-hight:0;
+
+

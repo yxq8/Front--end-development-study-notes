@@ -1,0 +1,57 @@
+.crumb_wrap {
+    height: 15px;
+    margin: 20px 0 13px 0;
+    font: 12px "宋体";
+}
+
+.crumb_wrap a {
+    margin-right: 10px;
+
+}
+
+.preview_wrap {
+    width: 400px;
+}
+
+.preview_img {
+    height: 398px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.preview_list {
+    position: relative;
+    width: 310px;
+    height: 60px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.list-item li {
+    width: 56px;
+    height: 56px;
+    border: 1px solid transparent;
+    margin: 0 2px;
+}
+
+.list-item li:hover {
+    border: 1px solid red;
+}
+
+.preview_list .arrow_prev {
+    position: absolute;
+    top: 15px;
+    left: -20px;
+    width: 22px;
+    height: 32px;
+    background: url(../img/arrow-prev.png) no-repeat;
+}
+
+.preview_list .arrow_next {
+    position: absolute;
+    top: 15px;
+    right: -20px;
+    width: 22px;
+    height: 32px;
+    background: url(../img/arrow-next.png) no-repeat;
+}

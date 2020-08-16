@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="app" >
+     <input type="text" v-focus><!-- 焦点直接显示在输入框 -->
+     <input type="text" v-color='bg'><!-- 改变背景颜色 -->
+
+    </div>
+    <script>
+Vue.directive('focus',{
+    inserted:function(e1){//e1表示指令所绑定的元素
+    e1.focus();
+
+    }
+})
+
+Vue.directive('color',{
+    bind:function(e1,binding){
+        e1.style.backgroundColor=binding.value.color;
+    }
+})
+
+        var app=new Vue({
+            el:'#app',
+            data:{
+                bg:{
+                color:'orange'
+                }
+               
+            },
+            methods:{
+                handle:function(){
+                    
+
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

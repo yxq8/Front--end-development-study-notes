@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <form>
+         用户名：<input type="text" v-model="username" v-on:keyup.delete="deleteContent"><br>
+         密码：<input type="password" v-model="password" v-on:keyup.enter="keySubmit"><br>
+         <input type="button" v-on:click="keySubmit" value="提交">
+        </form>
+        <input type="text" v-on:keyup.a='handle'>
+    </div>
+    <script>
+        Vue.config.keyCodes.a=65
+        var app=new Vue({
+            el:'#app',
+            data:{
+               username:"",
+               password:"",
+            },
+            methods:{
+                keySubmit:function(){
+                    console.log(this.username,this.password)
+                },
+                deleteContent:function(){
+                    this.username=''
+                },
+                handle:function(event){
+                    console.log(event.keyCode)
+                }
+
+            }
+
+        })
+    </script>
+</body>
+</html>

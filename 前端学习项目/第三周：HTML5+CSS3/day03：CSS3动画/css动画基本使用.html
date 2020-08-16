@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 想页面一打开，一个盒子就从左边走到右边 */
+
+        /* 1、定义动画 */
+        @keyframes move{
+            0%{
+                transform: translate(0px,0px);
+            }
+            25%{
+                transform: translate(1000px,0px);
+            }
+            50%{
+                transform: translate(1000px,500px);
+            }
+            75%{
+                transform: translate(0,500px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 2、调用动画 */
+            animation-name: move;/* 规定@keyframes 动画名称（必须的） */
+            animation-duration:5s;/* 规定动画完成一个周期所花费的秒或毫秒（必须的）*/
+            animation-timing-function: ease;/* 运动曲线 */
+            animation-delay:2s ;/* 何时开始 */
+            animation-iteration-count: infinite;/* 重复次数 ，默认1次，infinite无限次*/
+            animation-direction: alternate;/* 是否反方向播放,默认normal,反方向alternate */
+            animation-fill-mode:forwards ;/* 动画结束后的状态，默认backwards回到起始状态，forwards保持 */
+            animation-play-state: running;/* 是否运行或暂停，默认running运行,paused暂停 */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

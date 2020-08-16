@@ -1,0 +1,44 @@
+表单由表单控件（表单元素）、提示信息、表单域三个部分构成
+
+1、表单标签
+（1）input控件（重点）
+<input type=""/>
+a.<input/>单标签
+b.type属性设置不同的属性值来指定不同的控件类型
+     属性值：
+           text(单行文本输入框)；
+           password(密码)；
+           radio(单选按钮)；
+           checkbox(复选框)；
+           button(普通按钮)；
+           submit(提交按钮);
+           reset(重置按钮);
+           image(图像形式提交按钮)；
+           file(文件域)；
+c.name由用户自定义，控件名称
+d.value由用户自定义，默认文本值
+e.size,正整数，控件在页面显示宽度
+f.checked，定义控件被选中的项
+g.maxlength,正整数，允许输入最多字符数
+
+（2）label标签
+作用：用于绑定一个表单元素，当点击label标签时，被绑定的表单元素就会获得输入焦点（即当鼠标点击标签文字时光标定位到表单里）
+方法一：label直接包括input表单
+<label>用户名：<input type="text" value=""></label>
+方法二：for和id属性规定label与哪个表单绑定
+<label for="man">男</label>
+<input type="radio" name="sex" id="man">
+
+
+（3）textarea控件（文本域）
+创建多行文本输入框
+（4）select（下拉菜单）(一般不用，使用div，li来造下拉列表)
+
+
+
+2、for表单域
+实现用户信息的收集和传递，form中所有内容都会传给服务器
+<form action="url地址" method="提交方式" name="表单名称"></form>
+action：url地址
+method：get/post
+name:名称

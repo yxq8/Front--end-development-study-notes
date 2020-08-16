@@ -1,0 +1,10 @@
+-moz-：代表firefox浏览器私有属性
+-ms-:ie浏览器私有属性
+-webkit-:safari、chome私有属性
+-0-：opera私有属性
+
+提倡写法：
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+-o-border-radius:10px;
+border-radius:10px;
